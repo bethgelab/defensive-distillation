@@ -78,7 +78,7 @@ def make_model(restore, is_train=tf.constant(False), NUM_CHANNELS=1, IMAGE_SIZE=
         
         pool_shape = pool.get_shape().as_list()
         reshape = tf.reshape(pool,
-                             [pool_shape[0], pool_shape[1] * pool_shape[2] * pool_shape[3]])
+                             [-1, pool_shape[1] * pool_shape[2] * pool_shape[3]])
 
         hidden = tf.nn.relu(tf.matmul(reshape, fc1_weights)+fc1_beta)
         
