@@ -8,7 +8,7 @@ TEMPERATURE = 100
 
 def create():
     sess = tf.Session().__enter__()
-    _input = tf.placeholder(tf.float32, (1, 28, 28, 1))
+    _input = tf.placeholder(tf.float32, (None, 28, 28, 1))
     
     local_path = os.path.dirname(os.path.realpath(inspect.stack()[0][1]))
     MODEL_PATH = os.path.join(local_path, 'models/distilled')
